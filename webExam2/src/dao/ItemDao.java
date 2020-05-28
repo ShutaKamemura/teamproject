@@ -170,6 +170,7 @@ public class ItemDao {
 				dto.setName(rs.getString("name"));
 				dto.setCategory(parseCategory(rs.getString("category")));
 				dto.setPrice(rs.getInt("price"));
+				dto.setStock(rs.getInt("stock"));
 				list.add(dto);
 			}
 		}finally {
@@ -185,7 +186,7 @@ public class ItemDao {
 	 * @throws SQLException
 	 */
 	public int insert(ItemDto dto) throws SQLException {
-		sql = "INSERT INTO item (code, name, category, price) VALUES (?, ?, ?, ?)";
+		sql = "INSERT INTO item (code, name, category, price,stock) VALUES (?, ?, ?, ?, ?)";
 		int n = 0;
 		
 		try {
@@ -195,7 +196,7 @@ public class ItemDao {
 			ps.setString(2, dto.getName());
 			ps.setString(3, dto.getCategory());
 			ps.setInt(4, dto.getPrice());
-			
+			ps.setInt(5, dto.getStock());
 			n = ps.executeUpdate();
 		}finally {
 			ps.close();

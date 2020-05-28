@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+body {
+	
+	background-image: url("photo3.jpg");
+	background-size: cover;
+	background-position: right 0% bottom 70%;
+	color:#ffff00;
+	font-size :30px;
+	font-family: "ＭＳ 明朝"; 
+	font-weight: bold;
+		
+}
+
+

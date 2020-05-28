@@ -5,6 +5,7 @@
 <head>
 <meta charset="utf-8">
 <title>result</title>
+<link rel="stylesheet" href="searchend.css" type="text/css">
 <style>
 p{
 	color: red;

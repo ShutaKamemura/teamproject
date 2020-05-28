@@ -6,6 +6,7 @@
 <head>
 <meta charset="utf-8">
 <title>manage</title>
+<link rel="stylesheet" href="manage.css" type="text/css">
 </head>
 <body>
 <h2>商品管理ページ</h2>
@@ -59,12 +60,12 @@
 	<c:if test="${list != null }">
 		<table border="1">
 			<tr>
-				<th>商品id</th><th>商品コード</th><th>商品名</th><th>カテゴリ</th><th>価格</th><th></th><th></th>
+				<th>商品id</th><th>商品コード</th><th>商品名</th><th>カテゴリ</th><th>価格</th><th>在庫</th><th></th>
 			</tr>
 			
 			<c:forEach var="item" items="${list}">
 				<tr>
-					<td>${item.id}</td><td>${item.code}</td><td>${item.name}</td><td>${item.category}</td><td>${item.price}</td>
+					<td>${item.id}</td><td>${item.code}</td><td>${item.name}</td><td>${item.category}</td><td>${item.price}</td><td>${item.stock}</td>
 					<td>
 						<form action="ManageServlet" method="get">
 							<button name="btn" value="edit">変更</button>

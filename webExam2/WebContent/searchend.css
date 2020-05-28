@@ -1,0 +1,17 @@
+@charset "UTF-8";
+body {
+	
+	background-image: url("photo1.jpg");
+	background-size: cover;
+	background-position: right 0% bottom 70%;
+	color: #FFFFFF;
+	font-size :20px;
+	font-family: "メイリオ";
+	font-weight: bold;
+	color: #FFFFFF;
+	height: 10em;
+    position: relative;
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
