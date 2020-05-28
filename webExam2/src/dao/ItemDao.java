@@ -140,6 +140,13 @@ public class ItemDao {
 		return search(ps);
 	}
 	
+	public ArrayList<ItemDto> getItemsFromSales() throws SQLException{
+		
+		sql = "select id, code, name, category, sales from item order by sales desc limit 3";
+		ps = con.prepareStatement(sql);
+		return search2(ps);
+	}
+	
 	/**
 	 * DBから10,000円以上の値段検索
 	 * @return 検索にヒットしたデータを持つリスト
@@ -151,6 +158,7 @@ public class ItemDao {
 		return search(ps);
 	}
 	
+
 	/**
 	 * select文を実行するメソッド
 	 * @param ps パラメータがセットされたSQLを持つオブジェクト
@@ -170,6 +178,29 @@ public class ItemDao {
 				dto.setName(rs.getString("name"));
 				dto.setCategory(parseCategory(rs.getString("category")));
 				dto.setPrice(rs.getInt("price"));
+				dto.setStock(rs.getInt("stock"));
+				dto.setSales(rs.getInt("sales"));
+				list.add(dto);
+			}
+		}finally {
+			ps.close();
+		}
+		return list;
+	}
+	
+	private ArrayList<ItemDto> search2(PreparedStatement ps) throws SQLException {
+	
+		try {
+			rs = ps.executeQuery();
+			list = new ArrayList<>();
+			ItemDto dto;
+			while(rs.next()) {
+				dto = new ItemDto();
+				dto.setId(rs.getInt("id"));
+				dto.setCode(rs.getInt("code"));
+				dto.setName(rs.getString("name"));
+				dto.setCategory(parseCategory(rs.getString("category")));
+				dto.setSales(rs.getInt("sales"));
 				list.add(dto);
 			}
 		}finally {
@@ -185,7 +216,7 @@ public class ItemDao {
 	 * @throws SQLException
 	 */
 	public int insert(ItemDto dto) throws SQLException {
-		sql = "INSERT INTO item (code, name, category, price) VALUES (?, ?, ?, ?)";
+		sql = "INSERT INTO item (code, name, category, price, stock, sales) VALUES (?, ?, ?, ?, ?, ?)";
 		int n = 0;
 		
 		try {
@@ -195,6 +226,8 @@ public class ItemDao {
 			ps.setString(2, dto.getName());
 			ps.setString(3, dto.getCategory());
 			ps.setInt(4, dto.getPrice());
+			ps.setInt(5, dto.getStock());
+			ps.setInt(6, dto.getSales());
 			
 			n = ps.executeUpdate();
 		}finally {

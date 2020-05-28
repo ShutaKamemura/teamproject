@@ -16,6 +16,7 @@ import dbAccess.SelectAll;
 import dbAccess.SelectCategory;
 import dbAccess.SelectName;
 import dbAccess.SelectPrice;
+import dbAccess.SelectSales;
 
 /**
  * 商品検索時のサーブレット<br>
@@ -47,10 +48,13 @@ public class SearchServlet extends HttpServlet {
 		case "all":
 			dbAccess = new SelectAll();
 			break;
+		case "sales":
+			dbAccess = new SelectSales();
+			break;
 		}
 		try {
 			dbAccess.execute(request);
-		}catch(SQLException e){
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		

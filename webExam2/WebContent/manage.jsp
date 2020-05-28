@@ -56,7 +56,13 @@
 		<input type="hidden" name="selectWay" value="price">
 	</form>
 	
-	<c:if test="${list != null }">
+	<form action="ManageServlet" method="get">
+		<button name="btn" value="search">売り上げ管理</button>
+		<input type="hidden" name="selectWay" value="sales">
+	</form>
+
+	
+	<c:if test="${list != null}">
 		<table border="1">
 			<tr>
 				<th>商品id</th><th>商品コード</th><th>商品名</th><th>カテゴリ</th><th>価格</th><th></th><th></th>
@@ -81,5 +87,21 @@
 			</c:forEach>
 		</table>
 	</c:if>
+	
+	<c:if test="${list2 != null}">
+	<p>売り上げ数を表示しました</p>
+		<table border="1">
+			<tr>
+				<th>商品id</th><th>商品コード</th><th>商品名</th><th>カテゴリ</th><th>売り上げ</th>
+			</tr>
+			
+			<c:forEach var="item" items="${list2}">
+				<tr>
+					<td>${item.id}</td><td>${item.code}</td><td>${item.name}</td><td>${item.category}</td><td>${item.sales}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</c:if>
+	
 </body>
 </html>

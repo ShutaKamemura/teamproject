@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("1");
 		dbAccess = new SelectForLogin();
 		
 		try {
@@ -51,6 +51,7 @@ public class LoginServlet extends HttpServlet {
 		
 		if(flag) {
 			response.sendRedirect("http://localhost:8080/webExam2/ManageServlet");
+			System.out.println("2");
 		}else {
 			doGet(request, response);
 		}

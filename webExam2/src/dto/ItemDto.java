@@ -37,6 +37,10 @@ public class ItemDto {
 	 * 値段
 	 */
 	int price;
+	
+	int stock;
+	
+	int sales;
 
 	public int getId() {
 		return id;
@@ -77,4 +81,21 @@ public class ItemDto {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+	
+	public int getSales() {
+		return sales;
+	}
+
+	public void setSales(int sales) {
+		this.sales = sales;
+	}
+	
 }
