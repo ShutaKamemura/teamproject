@@ -170,6 +170,7 @@ public class ItemDao {
 				dto.setName(rs.getString("name"));
 				dto.setCategory(parseCategory(rs.getString("category")));
 				dto.setPrice(rs.getInt("price"));
+				dto.setStock(rs.getInt("stock"));
 				list.add(dto);
 			}
 		}finally {
@@ -185,7 +186,7 @@ public class ItemDao {
 	 * @throws SQLException
 	 */
 	public int insert(ItemDto dto) throws SQLException {
-		sql = "INSERT INTO item (code, name, category, price) VALUES (?, ?, ?, ?)";
+		sql = "INSERT INTO item (code, name, category, price, stock) VALUES (?, ?, ?, ?, ?)";
 		int n = 0;
 		
 		try {
@@ -195,6 +196,7 @@ public class ItemDao {
 			ps.setString(2, dto.getName());
 			ps.setString(3, dto.getCategory());
 			ps.setInt(4, dto.getPrice());
+			ps.setInt(5, dto.getStock());
 			
 			n = ps.executeUpdate();
 		}finally {
@@ -211,7 +213,7 @@ public class ItemDao {
 	 */
 	public int update(ItemDto dto) throws SQLException {
 		
-		sql = "UPDATE item set name = ?, category = ?, price = ? where code = ?";
+		sql = "UPDATE item set name = ?, category = ?, price = ?, stock = ? where code = ?";
 		int n = 0;
 		
 		try {
@@ -219,7 +221,31 @@ public class ItemDao {
 			ps.setString(1, dto.getName());
 			ps.setString(2, dto.getCategory());
 			ps.setInt(3, dto.getPrice());
-			ps.setInt(4, dto.getCode());
+			ps.setInt(4, dto.getStock());
+			ps.setInt(5, dto.getCode());
+			
+			n = ps.executeUpdate();
+		}finally {
+			ps.close();
+		}
+		return n;
+	}
+	
+	/**
+	 * DBへの加算処理
+	 * @param dto 既存商品の更新情報を持つオブジェクト
+	 * @return 成功件数
+	 * @throws SQLException
+	 */
+	public int addstock(ItemDto dto) throws SQLException {
+		
+		sql = "UPDATE item set stock = stock + ? where code = ?";
+		int n = 0;
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, dto.getStock());
+			ps.setInt(2, dto.getCode());
 			
 			n = ps.executeUpdate();
 		}finally {

@@ -23,13 +23,16 @@ public class InsertItem implements DBAccess {
 		String name = request.getParameter("name");
 		String category= request.getParameter("category");
 		String price = request.getParameter("price");
+		String stock = request.getParameter("stock");
 		
-		if(name != null && !name.isEmpty() && price != null && !price.isEmpty() && Judge.isNumber(price)) {
+		
+		if(name != null && !name.isEmpty() && price != null && !price.isEmpty() && Judge.isNumber(price) && stock != null && !stock.isEmpty() && Judge.isNumber(stock)) {
 			
 			ItemDto dto = new ItemDto();
 			dto.setName(name);
 			dto.setCategory(category);
 			dto.setPrice(Integer.parseInt(price));
+			dto.setStock(Integer.parseInt(stock));
 			dto.setCode(dto.hashCode());
 			try {
 				dao = new ItemDao();

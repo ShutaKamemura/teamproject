@@ -10,10 +10,10 @@
 	<h2>以下の商品を削除します</h2>
 	<table border="1">
 		<tr>
-			<th>商品ID</th><th>商品コード</th><th>商品名</th><th>カテゴリ</th><th>価格</th>
+			<th>商品ID</th><th>商品コード</th><th>商品名</th><th>カテゴリ</th><th>価格</th><th>在庫</th>
 		</tr>
 		<tr>
-			<td>${item.id}</td><td>${item.code}</td><td>${item.name}</td><td>${item.category}</td><td>${item.price}</td>
+			<td>${item.id}</td><td>${item.code}</td><td>${item.name}</td><td>${item.category}</td><td>${item.price}</td><td>${item.stock}</td>
 		</tr>
 	</table>
 	<p>よろしいですか？</p>

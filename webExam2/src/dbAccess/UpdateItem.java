@@ -23,8 +23,9 @@ public class UpdateItem implements DBAccess {
 		String name = request.getParameter("name");
 		String category = request.getParameter("category");
 		String price = request.getParameter("price");
+		String stock = request.getParameter("stock");
 		
-		if(name == null || name.isEmpty() || price == null || price.isEmpty() || !Judge.isNumber(price)) {
+		if(name == null || name.isEmpty() || price == null || price.isEmpty() || !Judge.isNumber(price) || stock == null || stock.isEmpty() || !Judge.isNumber(stock)) {
 			request.setAttribute("message", "入力が不正です");
 			return;
 		}
@@ -34,6 +35,7 @@ public class UpdateItem implements DBAccess {
 		dto.setName(name);
 		dto.setCategory(category);
 		dto.setPrice(Integer.parseInt(price));
+		dto.setStock(Integer.parseInt(stock));
 		
 		try {
 			dao = new ItemDao();

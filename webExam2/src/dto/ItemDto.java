@@ -8,6 +8,7 @@ package dto;
  * ・商品コード<br>
  * ・カテゴリ<br>
  * ・値段<br>
+ * ・在庫<br>
  * @author user
  *
  */
@@ -37,6 +38,11 @@ public class ItemDto {
 	 * 値段
 	 */
 	int price;
+	
+	/**
+	 * 在庫
+	 */
+	int stock;
 
 	public int getId() {
 		return id;
@@ -76,5 +82,13 @@ public class ItemDto {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 }
