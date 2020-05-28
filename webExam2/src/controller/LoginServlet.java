@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ServletContext context = getServletContext();
-		RequestDispatcher dis = context.getRequestDispatcher("/manageTop.html");
+		RequestDispatcher dis = context.getRequestDispatcher("/manageTop.jsp");
 		dis.forward(request, response);
 	}
 

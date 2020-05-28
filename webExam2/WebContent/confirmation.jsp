@@ -5,6 +5,7 @@
 <head>
 <meta charset="utf-8">
 <title>confirm</title>
+<link rel="stylesheet" type="text/css" href="confirmation.css">
 </head>
 <body>
 	<h2>以下の商品を削除します</h2>
@@ -18,8 +19,8 @@
 	</table>
 	<p>よろしいですか？</p>
 	<form action="DeleteServlet" method="post">
-		<button name="btn" value="yes">はい</button>
-		<button name="btn" value="no">いいえ</button>
+		<button class="yes" name="btn" value="yes">はい</button>
+		<button class="no" name="btn" value="no">いいえ</button>
 		<input type="hidden" name="code" value="${item.code}">
 	</form>
 </body>
