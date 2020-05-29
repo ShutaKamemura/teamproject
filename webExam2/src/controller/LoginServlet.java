@@ -47,12 +47,18 @@ public class LoginServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		boolean flag = (boolean) request.getAttribute("flag");
+		String login = (String)request.getAttribute("login");
 		
-		if(flag) {
+		switch(login) {
+		case "admin":
 			response.sendRedirect("http://localhost:8080/webExam2/ManageServlet");
-		}else {
+			break;
+		case "client":
+			response.sendRedirect("http://localhost:8080/webExam2/ClientServlet");
+			break;
+		case "error":
 			doGet(request, response);
+			break;
 		}
 		
 		

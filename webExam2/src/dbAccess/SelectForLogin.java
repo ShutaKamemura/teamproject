@@ -23,7 +23,7 @@ public class SelectForLogin implements DBAccess {
 		
 		if(name == null || name.isEmpty() || pass == null || pass.isEmpty()) {
 			request.setAttribute("message", "ユーザ名、パスワードを入力してください");
-			request.setAttribute("flag", false);
+			request.setAttribute("login", "error");
 			return;
 		}
 		
@@ -31,10 +31,16 @@ public class SelectForLogin implements DBAccess {
 			dao = new ItemDao();
 			n = dao.getLoginInfo(name, pass);
 
-			if(n > 0) {
-				request.setAttribute("flag", true);
-			}else {
-				request.setAttribute("flag", false);
+			switch (n) {
+			case 0:
+				request.setAttribute("login", "error");
+				break;
+			case 1:
+				request.setAttribute("login", "admin");
+				break;
+			case 2:
+				request.setAttribute("login", "client");
+				break;
 			}
 		}finally {
 			if(dao != null) dao.close();

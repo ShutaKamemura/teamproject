@@ -13,7 +13,7 @@
 	<form action="StockServlet" method="post">
 		<table border="1">
 			<tr>
-				<th>在庫</th><td><input type="text" name="stock" value="${item.stock}"></td>
+				<th>補充</th><td><input type="text" name="stock" value="${item.stock}"></td>
 			</tr>
 		</table>
 		<p>上記で補充します</p>
