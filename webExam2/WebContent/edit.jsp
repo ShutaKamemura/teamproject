@@ -30,6 +30,9 @@
 			<tr>
 				<th>価格</th><td><input type="text" name="price" value="${item.price}"></td>
 			</tr>
+			<tr>
+				<th>在庫</th><td><input type="text" name="stock" value="${item.stock}"></td>
+			</tr>
 		</table>
 		<p>上記で登録します</p>
 		<p>よろしいですか？</p>

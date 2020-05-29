@@ -34,6 +34,7 @@ public class SearchServlet extends HttpServlet {
 		
 		String selectWay = request.getParameter("selectWay");
 		
+
 		switch (selectWay){
 		case "name":
 			dbAccess = new SelectName();
@@ -52,8 +53,8 @@ public class SearchServlet extends HttpServlet {
 			dbAccess.execute(request);
 		}catch(SQLException e){
 			e.printStackTrace();
-		}
 		
+	}
 		ServletContext context = getServletContext();
 		RequestDispatcher dis = context.getRequestDispatcher("/manage.jsp");
 		dis.forward(request, response);
