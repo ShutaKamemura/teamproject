@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>manage</title>
+<title>商品管理</title>
 </head>
 <body>
 <h2>商品管理ページ</h2>

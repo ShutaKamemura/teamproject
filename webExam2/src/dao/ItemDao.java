@@ -158,6 +158,11 @@ public class ItemDao {
 		return search(ps);
 	}
 	
+	public ArrayList<ItemDto> getAddSales() throws SQLException{
+		sql = "select code, sales from item where sales = ?";
+		ps = con.prepareStatement(sql);
+		return search(ps);
+	}
 
 	/**
 	 * select文を実行するメソッド
@@ -255,6 +260,24 @@ public class ItemDao {
 			ps.setInt(4, dto.getCode());
 			
 			n = ps.executeUpdate();
+		}finally {
+			ps.close();
+		}
+		return n;
+	}
+	
+	public int salesUpdate(int salesCount, int code) throws SQLException {
+		
+		sql = "UPDATE item set sales = ? where code = ?";
+		int n = 0;
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, salesCount + 1);
+			ps.setInt(2, code);
+			
+			n = ps.executeUpdate();
+			
 		}finally {
 			ps.close();
 		}
