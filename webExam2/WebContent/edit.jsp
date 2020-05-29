@@ -6,6 +6,7 @@
 <head>
 <meta charset="utf-8">
 <title>edit</title>
+<link rel="stylesheet" href="change.css" type="text/css">
 </head>
 <body>
 	<h2>商品編集ページ</h2>
@@ -33,8 +34,8 @@
 		</table>
 		<p>上記で登録します</p>
 		<p>よろしいですか？</p>
-		<button name="btn" value="yes">はい</button>
-		<button name="btn" value="no">いいえ</button>
+		<button class="yes" name="btn" value="yes">はい</button>
+		<button class="no" name="btn" value="no">いいえ</button>
 		<input type="hidden" name="code" value="${item.code}">
 	</form>
 </body>

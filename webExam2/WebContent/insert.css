@@ -1,0 +1,82 @@
+@charset "UTF-8";
+body {
+	
+	background-image: url("photo.jpg");
+	background-size: cover;
+	background-position: right 0% bottom 70%;
+	color:#008000;
+	font-size :20px;
+	font-family: "ＭＳ 明朝";
+	font-weight: bold;
+	color: white;
+	height: 10em;
+    position: relativecolor: white;
+	height: 10em;
+	width:100%;
+		
+}
+.login{
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+table{
+  width: 400px;
+  border-collapse: collapse;
+  margin: 5% 0;
+}
+table tr{
+  border-bottom: solid 2px white;
+}
+table tr:last-child{
+  border-bottom: none;
+}
+table th{
+  position: relative;
+  text-align: left;
+  width: 30%;
+  background-color: #008000;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+table th:after{
+  display: block;
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top:calc(50% - 10px);
+  right:-10px;
+  border-left: 10px solid #008000;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+table td{
+  text-align: left;
+  width: 70%;
+  text-align: center;
+  background-color: #eee;
+  padding: 10px 0;
+  border: solid;
+}
+a {
+color:#F00;
+}
+.yes {
+  display       : inline-block;
+  font-size     : 8pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 14px 23px;   /* 余白       */
+  background    : #008000;     /* 背景色     */
+  color         : white;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  opacity       : 0.9;         /* 透明度     */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 20px 20px 50px #666666;  /* 影の設定 */
+}
+.yes:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  opacity       : 1;           /* カーソル時透明度 */
+}

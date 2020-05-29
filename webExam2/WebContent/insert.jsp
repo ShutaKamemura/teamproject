@@ -6,8 +6,10 @@
 <head>
 <meta charset="utf-8">
 <title>insert</title>
+<link rel="stylesheet" href="insert.css" type="text/css">
 </head>
 <body>
+<div class="login">
 	<h2>商品登録</h2>
 	<a href="http://localhost:8080/webExam2/ManageServlet">管理ページに戻る</a>
 	<form action="InsertServlet" method="post">
@@ -32,11 +34,12 @@
 				<th>価格</th><td><input type="text" name="price"></td>
 			</tr>
 		</table>
-		<button>登録</button>
+		<button class="yes" name="btn" value="yes">登録</button>
 		
 		<c:if test="${message != null }">
 			<p>${message}</p>
 		</c:if>
 	</form>
+	</div>
 </body>
 </html>

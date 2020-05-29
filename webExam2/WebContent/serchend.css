@@ -1,10 +1,10 @@
 body {
 	
-	background-image: url("photo-1.jpg");
+	background-image: url("photo14.jpg");
 	background-size: cover;
 	background-position: right 0% bottom 70%;
-	color: black;
-	font-size :20px;
+	color: white;
+	font-size :35px;
 	font-family: "メイリオ";
 	font-weight: bold;
     width: 500px;
@@ -18,5 +18,29 @@ body {
 	position: absolute;
 }
 
+a:link {
+ 
+color: #ffffff;
+text-decoration:underline;
+ 
+}
+
+a:visited {
+ 
+color: #ff0000;
+text-decoration:underline;
+ 
+}
+
+a{
+	font-size: 35px;
+}
+
+p{
+	font-weight: bold;
+	text-shadow: 10px 10px 10px black;
+}
+
 h2{
+	text-shadow: 15px 15px 15px black;
 }
