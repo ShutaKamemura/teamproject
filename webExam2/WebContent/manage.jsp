@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Insert title here</title>
+<title>Buddit Management</title>
 <script src="https://kit.fontawesome.com/75beac86c5.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
@@ -51,6 +51,11 @@
 					</div>
 				</div>
 		  </div>
+		  
+		  <form action="ManageServlet" method="get">
+	      		<button name="btn" value="search" class="btn btn-info btn-block">売上管理</button>
+	      		<input type="hidden" name="selectWay" value="sales">
+	     </form>
 	     	 
 	      <div class="accordion" id="searchAccordion">
 		     <div class="card">
@@ -169,6 +174,21 @@
 				</c:forEach>
 			</table>
 		  </c:if>
+		  
+		  <c:if test="${list2 != null}">
+			<h4>売り上げ数を表示しました</h4>
+				<table class="table table-striped">
+					<tr>
+						<th>商品id</th><th>商品コード</th><th>商品名</th><th>カテゴリ</th><th>売上</th>
+					</tr>
+					
+					<c:forEach var="item" items="${list2}">
+						<tr>
+							<td>${item.id}</td><td>${item.code}</td><td>${item.name}</td><td>${item.category}</td><td>${item.sales}</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</c:if>
 	   </div>
 	</div>
 

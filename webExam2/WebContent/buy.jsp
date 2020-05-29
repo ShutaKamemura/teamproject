@@ -5,17 +5,20 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>stock</title>
+<title>buy</title>
 </head>
 <body>
-	<h2>在庫補充ページ</h2>
-	<form action="StockServlet" method="post">
+	<h2>購入ページ</h2>
+	<form action="BuyServlet" method="post">
 		<table border="1">
 			<tr>
-				<th>補充</th><td><input type="text" name="stock" value="${item.stock}"></td>
+				<th>商品id</th><th>商品コード</th><th>商品名</th>
+			</tr>
+			<tr>
+				<td>${item.id}</td><td>${item.code}</td><td>${item.name}</td>
 			</tr>
 		</table>
-		<p>上記で補充します</p>
+		<p>上記を購入します</p>
 		<p>よろしいですか？</p>
 		<button name="btn" value="yes">はい</button>
 		<button name="btn" value="no">いいえ</button>

@@ -63,7 +63,7 @@ public class ItemDao {
 		try {
 			rs = ps.executeQuery();
 			rs.last();
-			row = rs.getRow();
+			row = rs.getInt("id");
 		}finally {
 			ps.close();
 		}
@@ -140,6 +140,13 @@ public class ItemDao {
 		return search(ps);
 	}
 	
+	public ArrayList<ItemDto> getItemsFromSales() throws SQLException{
+		
+		sql = "select id, code, name, category, sales from item order by sales desc limit 3";
+		ps = con.prepareStatement(sql);
+		return search2(ps);
+	}
+	
 	/**
 	 * DBから10,000円以上の値段検索
 	 * @return 検索にヒットしたデータを持つリスト
@@ -171,6 +178,27 @@ public class ItemDao {
 				dto.setCategory(parseCategory(rs.getString("category")));
 				dto.setPrice(rs.getInt("price"));
 				dto.setStock(rs.getInt("stock"));
+				list.add(dto);
+			}
+		}finally {
+			ps.close();
+		}
+		return list;
+	}
+	
+	private ArrayList<ItemDto> search2(PreparedStatement ps) throws SQLException {
+		
+		try {
+			rs = ps.executeQuery();
+			list = new ArrayList<>();
+			ItemDto dto;
+			while(rs.next()) {
+				dto = new ItemDto();
+				dto.setId(rs.getInt("id"));
+				dto.setCode(rs.getInt("code"));
+				dto.setName(rs.getString("name"));
+				dto.setCategory(parseCategory(rs.getString("category")));
+				dto.setSales(rs.getInt("sales"));
 				list.add(dto);
 			}
 		}finally {
@@ -246,6 +274,28 @@ public class ItemDao {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, dto.getStock());
 			ps.setInt(2, dto.getCode());
+			
+			n = ps.executeUpdate();
+		}finally {
+			ps.close();
+		}
+		return n;
+	}
+	
+	/**
+	 * DBへの加算処理
+	 * @param dto 既存商品の更新情報を持つオブジェクト
+	 * @return 成功件数
+	 * @throws SQLException
+	 */
+	public int buyitem(ItemDto dto) throws SQLException {
+		
+		sql = "UPDATE item set stock = stock - 1, sales = sales + 1 where code = ?";
+		int n = 0;
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, dto.getCode());
 			
 			n = ps.executeUpdate();
 		}finally {

@@ -43,6 +43,11 @@ public class ItemDto {
 	 * 在庫
 	 */
 	int stock;
+	
+	/**
+	 * 売上
+	 */
+	int sales;
 
 	public int getId() {
 		return id;
@@ -90,5 +95,13 @@ public class ItemDto {
 
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+	
+	public int getSales() {
+		return sales;
+	}
+
+	public void setSales(int sales) {
+		this.sales = sales;
 	}
 }

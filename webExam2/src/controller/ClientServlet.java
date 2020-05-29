@@ -13,54 +13,46 @@ import javax.servlet.http.HttpServletResponse;
 
 import dbAccess.DBAccess;
 import dbAccess.SelectAll;
-import dbAccess.SelectCategory;
-import dbAccess.SelectName;
-import dbAccess.SelectPrice;
-import dbAccess.SelectSales;
 
 /**
- * 商品検索時のサーブレット<br>
- * ・doGet...doPostへ<br>
- * ・doPost...DBへの検索処理の呼び出し
+ * Servlet implementation class ClientServlet
  */
-@WebServlet("/SearchServlet")
-public class SearchServlet extends HttpServlet {
+@WebServlet("/ClientServlet")
+public class ClientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static DBAccess dbAccess;
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String selectWay = request.getParameter("selectWay");
+		String btn = request.getParameter("btn");
+		String next = null;
 		
-
-		switch (selectWay){
-		case "name":
-			dbAccess = new SelectName();
-			break;
-		case "category":
-			dbAccess = new SelectCategory();
-			break;
-		case "price":
-			dbAccess = new SelectPrice();
-			break;
-		case "all":
+		if(btn != null) {
+			switch (btn) {
+			case "buy":
+				next = "BuyServlet";
+				break;
+			default:
+				next = "client.jsp";
+				break;
+			}
+			
+		}else {
 			dbAccess = new SelectAll();
-			break;
-		case "sales":
-			dbAccess = new SelectSales();
-			break;
+			next = "client.jsp";
+			
+			try {
+				dbAccess.execute(request);
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
 		}
-		try {
-			dbAccess.execute(request);
-		}catch(SQLException e){
-			e.printStackTrace();
 		
-	}
 		ServletContext context = getServletContext();
-		RequestDispatcher dis = context.getRequestDispatcher("/manage.jsp");
+		RequestDispatcher dis = context.getRequestDispatcher("/" + next);
 		dis.forward(request, response);
-	}
+		}
 }
