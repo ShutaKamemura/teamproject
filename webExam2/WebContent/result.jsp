@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="serchend.css">
 <style>
 p{
-	color: red;
+	color: white;
 }
 </style>
 </head>
@@ -16,6 +16,9 @@ p{
 <div class="syori">
 	<h2>処理結果</h2>
 	<p>${message}</p>
+	<br>
+	<br>
+	<br>
 	<a href="http://localhost:8080/webExam2/ManageServlet">管理ページに戻る</a>
 	</div>
 </body>
