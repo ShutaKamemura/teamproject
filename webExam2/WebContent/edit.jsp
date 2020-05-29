@@ -35,7 +35,7 @@
 				<th>在庫</th><td><input type="text" name="stock" value="${item.stock}"></td>
 			</tr>
 		</table>
-		<p>上記で登録します</p>
+		<p>上記で変更します</p>
 		<p>よろしいですか？</p>
 		<button class="yes" name="btn" value="yes">はい</button>
 		<button class="no" name="btn" value="no">いいえ</button>

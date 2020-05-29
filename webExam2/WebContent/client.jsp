@@ -10,7 +10,12 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-	
+	<nav class="navbar navbar-light mb-2" style="background-color:#6d844d;">
+  		<a class="navbar-brand" href="#">
+    	<img src="reg.png" width="auto" height="32"></a>
+  		<a class="page-link text-dark bg-light" href="#">
+  		<i class="fas fa-user-circle"></i>ゲスト 様</a>
+	</nav>
 	<table class="table table-striped">
 				<tr>
 					<th>商品id</th><th>商品コード</th><th>商品名</th><th>カテゴリ</th><th>価格</th><th>在庫</th><th></th>

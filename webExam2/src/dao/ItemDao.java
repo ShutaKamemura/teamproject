@@ -142,7 +142,7 @@ public class ItemDao {
 	
 	public ArrayList<ItemDto> getItemsFromSales() throws SQLException{
 		
-		sql = "select id, code, name, category, sales from item order by sales desc limit 3";
+		sql = "select id, code, name, category, sales from item order by sales desc limit 5";
 		ps = con.prepareStatement(sql);
 		return search2(ps);
 	}

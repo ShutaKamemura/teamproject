@@ -176,7 +176,7 @@
 		  </c:if>
 		  
 		  <c:if test="${list2 != null}">
-			<h4>売り上げ数を表示しました</h4>
+			<h4>売上数を表示しています</h4>
 				<table class="table table-striped">
 					<tr>
 						<th>商品id</th><th>商品コード</th><th>商品名</th><th>カテゴリ</th><th>売上</th>
